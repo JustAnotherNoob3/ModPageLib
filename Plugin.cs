@@ -70,10 +70,12 @@ namespace ModPageLib
 		static public GameObject modPage;
 		static public GameObject modPageContent;
 		static public GameObject modPageLoading;
+		static public GameObject padding;
 		public static TextMeshProUGUI modName;
 		public static TextMeshProUGUI modDesc;
 		public static Image logo;
 		public static Transform viewport;
+		public static VerticalLayoutGroup vlg;
 		public static void Postfix(SalemModLoaderMainMenuController __instance)
 		{
 			//i haven't need to use reflection in so long lol, for some reason you can't publicize the SML dll
@@ -96,6 +98,7 @@ namespace ModPageLib
 				{
 					case "Thumbnail":
 						logo = child.GetComponent<Image>();
+						child.localScale *= 2;
 						break;
 					case "Mod Name":
 						modName = child.GetComponent<TextMeshProUGUI>();
@@ -115,7 +118,7 @@ namespace ModPageLib
 			}
 			modPageContent.AddComponent<LayoutElement>().minWidth = 800;
 			RectTransform mpTransform = modPageContent.transform.parent as RectTransform;
-			VerticalLayoutGroup vlg = modPageContent.AddComponent<VerticalLayoutGroup>();
+			vlg = modPageContent.AddComponent<VerticalLayoutGroup>();
 			vlg.childControlHeight = true;
 			vlg.childControlWidth = true;
 			vlg.childForceExpandHeight = true;
@@ -133,7 +136,7 @@ namespace ModPageLib
 			GameObject thingie = new GameObject("Horizontal Layout");
 			thingie.transform.SetParent(modPageContent.transform);
 			thingie.transform.SetAsFirstSibling();
-			GameObject padding = new GameObject("Padding");
+			padding = new GameObject("Padding");
 			padding.transform.SetParent(modPageContent.transform);
 			padding.transform.SetAsFirstSibling();
 			Image img = padding.AddComponent<Image>();
@@ -191,7 +194,7 @@ namespace ModPageLib
 		{
 
 			PrepareVars.modPage.SetActive(true);
-			if (lastModInfo == modInfo) { yield return null; yield return null; PrepareVars.viewport.localPosition = new Vector2(-497, PrepareVars.viewport.localPosition.y); yield break; }
+			//! if (lastModInfo == modInfo) { yield return null; yield return null; PrepareVars.viewport.localPosition = new Vector2(-497, PrepareVars.viewport.localPosition.y); yield break; }
 			GameObject mpContent = PrepareVars.modPageContent;
 			mpContent.SetInactiveIfNot();
 			GameObject loading = PrepareVars.modPageLoading;
@@ -201,7 +204,7 @@ namespace ModPageLib
 			string asPath = modInfo.AssemblyPath;
 			Assembly assembly = Assembly.LoadFile(asPath);
 			string[] manifestResourceNames = assembly.GetManifestResourceNames();
-			if (!manifestResourceNames.Any((string x) => x.ToLower().EndsWith("modpage.txt"))) { Console.WriteLine("This mod doesn't contain a ModPage! Are you sure you embedded modpage.txt?"); yield break; }
+			if (!manifestResourceNames.Any((string x) => x.ToLower().EndsWith("modpage.txt"))) { Debug.LogWarning("[ModPage Lib] This mod doesn't contain a ModPage! Are you sure you embedded modpage.txt?"); yield break; }
 			using (Stream manifestResourceStream = assembly.GetManifestResourceStream(manifestResourceNames.First((string x) => x.ToLower().EndsWith("modpage.txt"))))
 			{
 				using (StreamReader streamReader = new StreamReader(manifestResourceStream))
@@ -211,15 +214,18 @@ namespace ModPageLib
 			}
 			PrepareVars.modDesc.SetText(modPageInfo + "\n<color=#FFFF99><size=100%><align=\"right\">- Made With <b>The ModPage Lib</b>.</align></size></color>");
 			PrepareVars.modName.SetText($"{modInfo.DisplayName}{(ModSettings.GetBool("Titles with less info.", "JAN.modpagelib") ? "" : $"<size=50%>(v{modInfo.Version})\n By {string.Join(" & ", modInfo.Authors)}")}");
-			if (modInfo.Thumbnail != null)
+
+			if (modInfo.Thumbnail != null && !ModSettings.GetBool("Don't load images.", "JAN.modpagelib"))
 			{
+				PrepareVars.padding.SetActiveIfNot();
 				PrepareVars.logo.gameObject.SetActiveIfNot();
 				PrepareVars.logo.sprite = modInfo.Thumbnail;
 			}
 			else
 			{
-				if (ModSettings.GetBool("Don't load images.", "JAN.modpagelib")) PrepareVars.logo.gameObject.SetInactiveIfNot();
-				else PrepareVars.logo.gameObject.SetActiveIfNot();
+				PrepareVars.logo.gameObject.SetInactiveIfNot();
+				PrepareVars.padding.SetInactiveIfNot();
+
 			}
 			Debug.Log($"{modInfo.DisplayName} has a mod page with info: {modPageInfo}");
 			loading.gameObject.SetActive(false);
@@ -227,6 +233,10 @@ namespace ModPageLib
 			PrepareVars.viewport.localPosition = new Vector2(-497, PrepareVars.viewport.localPosition.y);
 			lastModInfo = modInfo;
 			yield return null;
+			if (PrepareVars.modName.textInfo.lineCount > 2 && !PrepareVars.logo.gameObject.activeSelf)
+			{
+				PrepareVars.modDesc.SetText("\n\n" + PrepareVars.modDesc.text);
+			}
 			PrepareVars.viewport.localPosition = new Vector2(-497, PrepareVars.viewport.localPosition.y);
 			yield return null;
 			PrepareVars.viewport.localPosition = new Vector2(-497, PrepareVars.viewport.localPosition.y);

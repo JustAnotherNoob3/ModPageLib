@@ -9,5 +9,5 @@ Extra Info:
 4.<indent=10%>--NOT IMPLEMENTED YET--. I'm planning on adding a way to add images to the modpage using the sprite tag of richtext. That is the only feature in planning currently (I haven't added it bcz i need to release this at some point lol it's been a month now).</indent></line-height>
 
 <size=200%><b>Changelog</b></size>
-<size=55%>v</size>1.0.1 -<indent=15%>Now the mod page won't reload if you check the same mod.</indent>
+<size=55%>v</size>1.0.1 -<indent=15%>Now the mod page makes the thumbnail bigger. Also added more spacing between the Display name and the text if the Display name ends up being greater than 2 lines.</indent>
 <size=55%>v</size>1.0.0 -<indent=15%>The released library!</indent>
