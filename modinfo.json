@@ -1,0 +1,28 @@
+{
+  "HarmonyId": "JAN.modpagelib",
+  "ModLib": true,
+  "DisplayName": "The ModPage Lib",
+  "Authors": [
+    "JustAnotherNoob"
+  ],
+  "Discord": "https://discord.gg/ht8ttc3R8E",
+  "Description": "Library that allows mods to show a custom info page in the SML UI",
+  "Version": "1.0.1",
+  "RequiredMods": [],
+  "Settings": {
+    "CheckboxSettings": [
+      {
+        "Name": "Titles with less info.",
+        "Description": "Titles will only display the name of the mod.",
+        "DefaultValue": false,
+        "AvailableInGame": false
+      },
+      {
+        "Name": "Don't load images.",
+        "Description": "If a mod page takes too long to load you may try to turn off images.",
+        "DefaultValue": false,
+        "AvailableInGame": false
+      }
+    ]
+  }
+}

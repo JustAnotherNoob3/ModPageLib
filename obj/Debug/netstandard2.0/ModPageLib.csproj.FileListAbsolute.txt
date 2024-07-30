@@ -1,0 +1,15 @@
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\bin\Debug\netstandard2.0\Assembly-CSharp.dll
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\bin\Debug\netstandard2.0\SalemModLoader.dll
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\bin\Debug\netstandard2.0\Unity.TextMeshPro.dll
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\bin\Debug\netstandard2.0\UnityEngine.UI.dll
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\obj\Debug\netstandard2.0\ModPageLib.csproj.AssemblyReference.cache
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\obj\Debug\netstandard2.0\ModPageLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\obj\Debug\netstandard2.0\ModPageLib.AssemblyInfoInputs.cache
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\obj\Debug\netstandard2.0\ModPageLib.AssemblyInfo.cs
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\obj\Debug\netstandard2.0\ModPageLib.csproj.CoreCompileInputs.cache
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\obj\Debug\netstandard2.0\ModPageLib.csproj.CopyComplete
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\bin\Debug\netstandard2.0\ModPageLib.deps.json
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\bin\Debug\netstandard2.0\ModPageLib.dll
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\bin\Debug\netstandard2.0\ModPageLib.pdb
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\obj\Debug\netstandard2.0\ModPageLib.dll
+D:\Apps\JAN's stuff\ToS 2\ModPageLib\obj\Debug\netstandard2.0\ModPageLib.pdb

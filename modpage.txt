@@ -1,0 +1,13 @@
+Welcome! This is the ModPage Lib, a lib made to create what you're seeing right now, a mod page. You can use this page for whatever you want, a tutorial on how to use your mod, extra explanations, changelogs, the entire Never gonna give you up song, you say it!
+
+The only thing you need to add to your mod to use the lib, simply add to your embedded resources a file called "modpage.txt" and write in it whatever you wish, then add to the required mods the harmony id of this lib "JAN.modpagelib". That's all you need! The library will automatically detect it and create a modpage. I hope you all find this lib useful.
+
+Extra Info:
+<line-height=110%>1.<indent=10%>This text is able to use rich text, so you can add some <i><color=#FF0000>S</color><color=#FF7F00>T</color><color=#FFFF00>Y</color><color=#00FF00>L</color><color=#3333FF>E</color></i> to your modpages. <link="http://digitalnativestudios.com/textmeshpro/docs/rich-text/"><color=blue><u>You can check this reference for examples and explanations (click here)</u></color></link>.</indent>
+2.<indent=10%>As you just saw, this library allows for easy hyperlink creation. Just use the link tag and add the hyperlink there. This only makes the hyperlink tho, you need to add the color!</indent>
+3.<indent=10%>For any question or suggestion about this library please contact me through discord @justanothernoob, you can DM me or just ping me on the SML server (or mine :P). If you wish for the text i used for this exact modpage send me a DM too.</indent>
+4.<indent=10%>--NOT IMPLEMENTED YET--. I'm planning on adding a way to add images to the modpage using the sprite tag of richtext. That is the only feature in planning currently (I haven't added it bcz i need to release this at some point lol it's been a month now).</indent></line-height>
+
+<size=200%><b>Changelog</b></size>
+<size=55%>v</size>1.0.1 -<indent=15%>Now the mod page won't reload if you check the same mod.</indent>
+<size=55%>v</size>1.0.0 -<indent=15%>The released library!</indent>
